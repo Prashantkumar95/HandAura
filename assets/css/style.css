@@ -439,7 +439,8 @@ body::-webkit-scrollbar-thumb:hover { background: hsl(0, 0%, 70%); }
 
 .header-logo { margin-bottom: 20px; }
 
-.header-logo img { margin: auto; }
+.header-logo img { margin: auto;
+}
 
 .header-search-container { position: relative; }
 
