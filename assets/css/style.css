@@ -439,7 +439,8 @@ body::-webkit-scrollbar-thumb:hover { background: hsl(0, 0%, 70%); }
 
 .header-logo { margin-bottom: 20px; }
 
-.header-logo img { margin: auto; }
+.header-logo img { margin: auto;
+}
 
 .header-search-container { position: relative; }
 
@@ -665,7 +666,7 @@ body::-webkit-scrollbar-thumb:hover { background: hsl(0, 0%, 70%); }
 .slider-item {
   position: relative;
   min-width: 100%;
-  max-height: 450px;
+  max-height: 100%;
   aspect-ratio: 1 / 1;
   border-radius: var(--border-radius-md);
   overflow: hidden;
