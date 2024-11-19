@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-/* General reset */
+
 body {
     margin: 0;
     padding: 0;
@@ -84,8 +83,7 @@ body {
 .card-button:hover {
     background-color: #0056b3;
 }
-=======
-/* General reset */
+
 body {
     margin: 0;
     padding: 0;
@@ -170,4 +168,3 @@ body {
 .card-button:hover {
     background-color: #0056b3;
 }
->>>>>>> 3dc348004a5780ddb2e5e5fe8a0287ff83b51524
