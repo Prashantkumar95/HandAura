@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Your Drawing | HandAura</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: hsl(353,100%,78%); /* Salmon Pink */
+        }
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+        input, textarea, button, a {
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+        }
+        button, a {
+            background-color: hsl(353,100%,78%); /* Salmon Pink */
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            height:100%;
+            width: 90%;
+            
+        }
+        button:hover, a:hover {
+            background-color: hsl(353,100%,78%);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Upload Your Drawing</h1>
+        <form id="uploadForm">
+            <label for="uploaderName">Your Name:</label>
+            <input type="text" id="uploaderName" name="uploaderName" placeholder="Enter your name" required>
+
+            <label for="drawing">Upload Drawing (Image):</label>
+            <input type="file" id="drawing" name="drawing" accept="image/*" required>
+
+            <label for="price">Set Your Price (in INR):</label>
+            <input type="number" id="price" name="price" min="1" step="0.01" required>
+
+            <label for="story">Story Behind Your Drawing:</label>
+            <textarea id="story" name="story" rows="5" placeholder="Describe your inspiration or story behind this artwork..." required></textarea>
+
+            <button type="button" onclick="uploadDrawing()">Submit Drawing</button>
+        </form>
+
+        <!-- New "View All Drawings" button -->
+        <a href="view-drawings.html" >View Drawings</a>
+    </div>
+
+    <script>
+        function uploadDrawing() {
+            const uploaderNameInput = document.getElementById('uploaderName');
+            const drawingInput = document.getElementById('drawing');
+            const priceInput = document.getElementById('price');
+            const storyInput = document.getElementById('story');
+
+            if (!drawingInput.files[0]) {
+                alert("Please upload a drawing.");
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const drawingData = {
+                    name: uploaderNameInput.value,
+                    image: e.target.result,
+                    price: priceInput.value,
+                    story: storyInput.value
+                };
+
+                // Save the drawing data to localStorage
+                const uploadedDrawings = JSON.parse(localStorage.getItem('uploadedDrawings')) || [];
+                uploadedDrawings.push(drawingData);
+                localStorage.setItem('uploadedDrawings', JSON.stringify(uploadedDrawings));
+
+                // Clear the form for a new upload
+                document.getElementById('uploadForm').reset();
+
+                // Notify the user and allow further uploads
+                alert('Drawing uploaded successfully! You can view it in "View All Drawings".');
+            };
+
+            reader.readAsDataURL(drawingInput.files[0]);
+        }
+    </script>
+</body>
+</html>

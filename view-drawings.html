@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Uploaded Drawings | HandAura</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: hsl(353,100%,78%); /* Salmon Pink */
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+        .card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            max-width: 30%;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .card h3 {
+            color: #333;
+            margin: 10px 0 5px;
+        }
+        .card p {
+            color: #555;
+            font-size: 14px;
+            margin: 5px 0;
+        }
+        .certified {
+            font-size: 12px;
+            color: #28a745;
+            font-weight: bold;
+        }
+        .actions {
+            margin-top: 10px;
+        }
+        .actions button {
+            width: 48%;
+            margin-right: 2%;
+            padding: 10px;
+            font-size: 14px;
+            border: none;
+            background-color: hsl(353,100%,78%); /* Salmon Pink */
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .actions button:last-child {
+            margin-right: 0;
+        }
+        .actions button:hover {
+            background-color: hsl(353,100%,78%);
+        }
+        .delete-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: hsl(353,100%,78%); /* Red for delete */
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            font-size: 20px;
+            line-height: 30px;
+            cursor: pointer;
+            opacity: 0; /* Hidden by default */
+            transition: opacity 0.3s ease;
+        }
+        .card:hover .delete-btn {
+            opacity: 1; /* Show on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>All Uploaded Drawings</h1>
+    
+    <div class="row" id="drawingContainer">
+        <!-- Cards will be dynamically loaded here -->
+    </div>
+
+    <script>
+        // Function to render all uploaded drawings
+        function renderDrawings() {
+            const drawingContainer = document.getElementById('drawingContainer');
+            const uploadedDrawings = JSON.parse(localStorage.getItem('uploadedDrawings')) || [];
+
+            drawingContainer.innerHTML = '';
+            if (uploadedDrawings.length === 0) {
+                drawingContainer.innerHTML = '<p>No drawings uploaded yet.</p>';
+                return;
+            }
+
+            uploadedDrawings.forEach((drawing, index) => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <img src="${drawing.image}" alt="Uploaded Drawing">
+                    <h3>${drawing.name} <span class="certified">(Certified Artist)</span></h3>
+                    <p>Price: ₹${drawing.price}</p>
+                    <p>${drawing.story}</p>
+                    <div class="actions">
+                        <button onclick="addToCart(${index})">Add to Cart</button>
+                        <button onclick="buyNow(${index})">Buy Now</button>
+                    </div>
+                    <button class="delete-btn" onclick="deleteDrawing(${index})">×</button>
+                `;
+                drawingContainer.appendChild(card);
+            });
+        }
+
+        // Function to add drawing to the cart
+        function addToCart(index) {
+            alert(`Drawing ${index + 1} added to cart.`);
+        }
+
+        // Function to buy drawing
+        function buyNow(index) {
+            alert(`Proceeding to buy drawing ${index + 1}.`);
+        }
+
+        // Function to delete a drawing
+        function deleteDrawing(index) {
+            if (confirm("Are you sure you want to delete this drawing?")) {
+                const uploadedDrawings = JSON.parse(localStorage.getItem('uploadedDrawings')) || [];
+                uploadedDrawings.splice(index, 1);  // Remove the drawing from the array
+                localStorage.setItem('uploadedDrawings', JSON.stringify(uploadedDrawings));  // Update localStorage
+                renderDrawings();  // Re-render the updated list of drawings
+            }
+        }
+
+        // Load drawings on page load
+        renderDrawings();
+    </script>
+</body>
+</html>
