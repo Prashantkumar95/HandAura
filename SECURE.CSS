@@ -1,0 +1,77 @@
+/* Reset styles */
+body, h1, h2, p, ul, li, a {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  /* Header Styles */
+  header {
+    background: linear-gradient(135deg,#ff91a4,#ff91a4);
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+  }
+  
+  header h1 {
+    font-size: 2.5rem;
+  }
+  
+  header p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+  }
+  
+  /* Main Content Styles */
+  .container {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  /* Section Styling */
+  .payment-section {
+    background: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .payment-section h2 {
+    font-size: 1.8rem;
+    color: #ff91a4;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ff91a4;
+    padding-bottom: 5px;
+  }
+  
+  .payment-section p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  .payment-section ul {
+    margin-top: 10px;
+    padding-left: 20px;
+  }
+  
+  .payment-section ul li {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 8px;
+  }
+  
+  .payment-section a {
+    color: #ff91a4;
+    text-decoration: none;
+  }
+  
+  .payment-section a:hover
+  
