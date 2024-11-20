@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Traditional States</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 15px;
+            color: white;
+        }
+
+        .menu-category {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu-category a {
+            text-decoration: none;
+            color: white;
+            padding: 10px 15px;
+            display: block;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .menu-category li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .menu-category li:hover a {
+            background-color: hsl(353,100%,78%); /* Salmon Pink */
+        }
+
+        .search-bar {
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .search-bar input {
+            padding: 10px;
+            font-size: 16px;
+            width: 250px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .search-bar button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: hsl(353,100%,78%); /* Salmon Pink */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .search-bar button:hover {
+            background-color:hsl(353,100%,78%); /* Darker Salmon Pink */
+        }
+
+        .state-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .state-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .state-item a {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .state-item a:hover {
+            color: hsl(353,100%,78%);
+        }
+
+        .state-item p {
+            margin-top: 10px;
+            color: #555;
+        }
+
+        .state-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .state-item:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+
+ 
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <input type="text" id="stateSearch" placeholder="Search for a state..." onkeyup="filterStates()" />
+        <button onclick="searchState()">Search</button>
+    </div>
+
+    <!-- State List Section -->
+    <div class="state-list" id="stateList">
+        <div class="state-item">
+            <img src="andhra-pradesh-image.jpg" alt="Andhra Pradesh">
+            <a href="#" onclick="redirectState('Andhra Pradesh')">Andhra Pradesh</a>
+            <p>Andhra Pradesh is known for its rich cultural heritage and authentic handmade art like Kalamkari paintings and Bidriware, which have been passed down through generations.</p>
+        </div>
+        <div class="state-item">
+            <img src="bihar-image.jpg" alt="Bihar">
+            <a href="#" onclick="redirectState('Bihar')">Bihar</a>
+            <p>Bihar is famous for Madhubani paintings and traditional Mithila art, which depict vibrant, nature-inspired motifs that are unique to the region's culture.</p>
+        </div>
+        <div class="state-item">
+            <img src="assam-image.jpg" alt="Assam">
+            <a href="#" onclick="redirectState('Assam')">Assam</a>
+            <p>Assam is renowned for its handwoven silk, particularly Muga silk, and traditional crafts like bamboo work and Assam tea which define its cultural richness.</p>
+        </div>
+        <div class="state-item">
+            <img src="chhattisgarh-image.jpg" alt="Chhattisgarh">
+            <a href="#" onclick="redirectState('Chhattisgarh')">Chhattisgarh</a>
+            <p>Chhattisgarh is known for its Dhokra metal casting and Bastar art, unique handmade crafts that showcase tribal culture and craftsmanship.</p>
+        </div>
+        <div class="state-item">
+            <img src="karnataka-image.jpg" alt="Karnataka">
+            <a href="#" onclick="redirectState('Karnataka')">Karnataka</a>
+            <p>Karnataka boasts intricate Channapatna toys and Bidriware crafts, along with its temples and art that speak to the state's deep cultural heritage.</p>
+        </div>
+        <div class="state-item">
+            <img src="madhya-pradesh-image.jpg" alt="Madhya Pradesh">
+            <a href="#" onclick="redirectState('Madhya Pradesh')">Madhya Pradesh</a>
+            <p>Madhya Pradesh is home to Pithora paintings and Chanderi fabric, traditional art forms that are an integral part of its cultural legacy.</p>
+        </div>
+        <div class="state-item">
+            <img src="manipur-image.jpg" alt="Manipur">
+            <a href="#" onclick="redirectState('Manipur')">Manipur</a>
+            <p>Manipur is known for its classical Manipuri dance and vibrant handmade textiles that represent the state's rich cultural history.</p>
+        </div>
+        <div class="state-item">
+            <img src="rajasthan-image.jpg" alt="Rajasthan">
+            <a href="#" onclick="redirectState('Rajasthan')">Rajasthan</a>
+            <p>Rajasthan is famous for its traditional Bandhej fabric, puppetry, and exquisite miniature paintings that showcase the state's royal heritage.</p>
+        </div>
+        <div class="state-item">
+            <img src="uttar-pradesh-image.jpg" alt="Uttar Pradesh">
+            <a href="#" onclick="redirectState('Uttar Pradesh')">Uttar Pradesh</a>
+            <p>Uttar Pradesh is renowned for its fine brassware and intricate carpet weaving, an expression of its deep-rooted artisanal culture.</p>
+        </div>
+        <!-- Add remaining states similarly -->
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // List of valid states and their filenames
+        const stateFiles = {
+            'Andhra Pradesh': 'Andhra Pradesh.html',
+            'Bihar': 'Bihar.html',
+            'Assam': 'Assam.html',
+            'Chhattisgarh': 'Chhattisgarh.html',
+            'Karnataka': 'Karnataka.html',
+            'Madhya Pradesh': 'Madhya Pradesh.html',
+            'Manipur': 'Manipur.html',
+            'Rajasthan': 'Rajasthan.html',
+            'Uttar Pradesh': 'Uttar Pradesh.html',
+            'Goa': 'Goa.html',
+            'Kerala': 'Kerala.html',
+            'Maharashtra': 'Maharashtra.html',
+            'Tamil Nadu': 'Tamil Nadu.html',
+            'Punjab': 'Punjab.html',
+            'Odisha': 'Odisha.html',
+            'Uttarakhand': 'Uttarakhand.html',
+            'Himachal Pradesh': 'Himachal Pradesh.html',
+            'Jharkhand': 'Jharkhand.html',
+            'Chandigarh': 'Chandigarh.html',
+            'Nagaland': 'Nagaland.html',
+            'Tripura': 'Tripura.html',
+            'Sikkim': 'Sikkim.html',
+            'Mizoram': 'Mizoram.html',
+            'Haryana': 'Haryana.html',
+            'Delhi': 'Delhi.html'
+        };
+
+        // Function to search state and redirect
+        function searchState() {
+            const searchQuery = document.getElementById('stateSearch').value.trim();
+            const normalizedQuery = searchQuery.replace(/\s+/g, ' '); // Ensure correct spaces
+
+            // If state is found in stateFiles, redirect to its page
+            if (stateFiles[normalizedQuery]) {
+                window.location.href = stateFiles[normalizedQuery];
+            } else {
+                alert("State not found. Please try again.");
+            }
+        }
+
+        // Optional: Automatically highlight matching states
+        function filterStates() {
+            const query = document.getElementById('stateSearch').value.toLowerCase();
+            const stateItems = document.getElementsByClassName('state-item');
+            Array.from(stateItems).forEach(item => {
+                const stateName = item.querySelector('a').textContent.toLowerCase();
+                if (stateName.includes(query)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Redirect based on state clicked
+        function redirectState(state) {
+            window.location.href = stateFiles[state];
+        }
+    </script>
+
+</body>
+</html>
