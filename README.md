@@ -11,8 +11,8 @@ HandAura is a fully responsive ecommerce website, maximum compatiblities in all 
 
 ## Demo
 
-![HandAura Desktop Demo](./website-demo-image/desktop.png "Desktop Demo")
-![HandAURA Mobile Demo](./website-demo-image/mobile.png "Mobile Demo")
+![HandAura Desktop Demo](./![alt text](<Screenshot (1).png>) "Desktop Demo")
+
 
 ## Prerequisites
 
@@ -20,21 +20,6 @@ Before you begin, ensure you have met the following requirements:
 
 * [Git](https://git-scm.com/downloads "Download Git") must be installed on your operating system.
 
-## Installing Anon
-
-To install **Anon**, follow these steps:
-
-Linux and macOS:
-
-```bash
-sudo git clone https://github.com/codewithsadee/anon-ecommerce-website.git
-```
-
-Windows:
-
-```bash
-git clone https://github.com/codewithsadee/anon-ecommerce-website.git
-```
 
 ## Contact
 
