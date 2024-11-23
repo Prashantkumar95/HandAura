@@ -21,7 +21,7 @@ body {
 .title {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: salmon;
+    color: hsl(353, 100%, 78%);
 }
 
 /* Card grid */
@@ -71,7 +71,7 @@ body {
 
 /* Card button */
 .card-button {
-    background-color: salmon;
+    background-color: hsl(353, 100%, 78%);
     color: white;
     border: none;
     padding: 10px 15px;
@@ -107,7 +107,7 @@ body {
 .title {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: salmon;
+    color: hsl(353, 100%, 78%);
 }
 
 /* Card grid */
@@ -157,7 +157,7 @@ body {
 
 /* Card button */
 .card-button {
-    background-color: salmon;
+    background-color:hsl(353, 100%, 78%);
     color: white;
     border: none;
     padding: 10px 15px;
@@ -168,6 +168,5 @@ body {
 }
 
 .card-button:hover {
-    background-color: #0056b3;
+    background-color:hsl(0, 100%, 70%);
 }
->>>>>>> 3dc348004a5780ddb2e5e5fe8a0287ff83b51524
